@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Puzzle</title>
+</head>
+<body style="text-align:center;">
+<div style="position: relative;margin: 0 auto">
+    <input id="chooseFile" type="file" value="请选择文件" accept="image/*" style="display: none;"/>
+    <canvas id="puzzleCanvas" width="420" height="420" style="border: 5px solid gray;background: lightcyan"></canvas>
+    <div id="loading">
+        loading……
+    </div>
+    <div id="btn" style="display: none;">
+        <p>
+            请设置每边的块数(当前<span id="blockCount" style="font-size: x-large;">4</span>)： 3
+            <input id="setBlock" type="range" max="9" min="3" value="4" onchange="setBlock">9
+        </p>
+        <button id="startBtn">更换图片</button>
+        <button id="previewBtn">看原图</button>
+        <button onclick="start()">重新开始</button>
+        <p>
+            说明：移动端请滑动拼图(不要太近哦)，pc端请使用上下左右按键。
+        </p>
+    </div>
+</div>
+
+<div id="mask"
+     style="position: absolute;left: 0;top: 0;width: 100%;height: 100%;display:none;opacity:1;background: gray;">
+    <div style="position: absolute;left: 50%;top: 50%;transform: translateX(-50%) translateY(-50%);width: 100%;opacity:1;">
+        <canvas id="previewCanvas" width="420" height="420"></canvas>
+        <div id="suc" style="display: none">
+            <p>
+            <div>恭喜你，成功啦！</div>
+            </p>
+            <button onclick="start()">重新开始</button>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/puzzle.js"></script>
+</html>
